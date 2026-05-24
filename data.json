@@ -1,0 +1,164 @@
+{
+  "subjects": {
+    "Web Development": {
+      "name": "Web Development",
+      "hero": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=1600&auto=format",
+      "topics": {
+        "HTML": {
+          "title": "HTML",
+          "description": "First step into becoming web developer.",
+          "pdf": "pdfs/math_calculus.pdf",
+          "lessons": [
+            { "title": "01. Apa Itu HTML", "video": "https://www.youtube.com/embed/wriGST3vp5M" },
+    { "title": "02. Installasi", "video": "https://www.youtube.com/embed/GAd6FTsGSY8" },
+    { "title": "03. Struktur HTML", "video": "https://www.youtube.com/embed/TM12RA6cmOQ" },
+    { "title": "04. Heading & Paragraph", "video": "https://www.youtube.com/embed/bd03BfqfOSk" },
+    { "title": "05. Attribute, Hyperlink dan Image", "video": "https://www.youtube.com/embed/F9Joj-lm4T0" },
+    { "title": "06. List dan Horizontal Rule", "video": "https://www.youtube.com/embed/C3g0-M5Raws" },
+    { "title": "07. Div, Span, Blockquote dan Kode", "video": "https://www.youtube.com/embed/LkyYbxjFkeQ" },
+    { "title": "08. Extra Tag", "video": "https://www.youtube.com/embed/kVNJKVBAN-s" },
+    { "title": "09. Latihan HTML 1", "video": "https://www.youtube.com/embed/nzCmGkOkVUQ" },
+    { "title": "10. List", "video": "https://www.youtube.com/embed/ahukMeW11gg" },
+    { "title": "11. Link dan Multipage", "video": "https://www.youtube.com/embed/fOGbw_mFovA" },
+    { "title": "12. HTML Attribute", "video": "https://www.youtube.com/embed/AxP8NPhCctA" },
+    { "title": "13. Tabel", "video": "https://www.youtube.com/embed/UK5CPO7Q9uI" },
+    { "title": "14. Form", "video": "https://www.youtube.com/embed/CBuFc2nGEDo" },
+    { "title": "15. Latihan HTML 2", "video": "https://www.youtube.com/embed/O6wjRNlkHUU" },
+    { "title": "16. Gambar", "video": "https://www.youtube.com/embed/M_ZlrjV0chU" },
+    { "title": "17. Video", "video": "https://www.youtube.com/embed/UbXUnaQ9hpc" },
+    { "title": "18. Audio / Music", "video": "https://www.youtube.com/embed/AYfI3EVsrSc" },
+    { "title": "19. Latihan HTML 3", "video": "https://www.youtube.com/embed/s_v0DaCXfMQ" },
+    { "title": "20. Latihan HTML 4", "video": "https://www.youtube.com/embed/iFw-AB4iAnQ" }
+   
+          ]
+        },
+        "CSS Dasar": {
+          "title": "CSS Dasar",
+          "description": "Decoration for HTML",
+          "pdf": "pdfs/math_algebra.pdf",
+          "lessons": [
+            { "title": "01. Apa Itu CSS", "video": "https://www.youtube.com/embed/AQOBN9XByf0" },
+            { "title": "02. Inline CSS", "video": "https://www.youtube.com/embed/NuJxNI0GltM" },
+            { "title": "03. Internal CSS", "video": "https://www.youtube.com/embed/K_B2g1t0jVA" },
+            { "title": "04. External CSS", "video": "https://www.youtube.com/embed/zYTdfOERybo" },
+            { "title": "05. CSS Selector", "video": "https://www.youtube.com/embed/MiIo71YFvPg" },
+            { "title": "06. Latihan CSS 1", "video": "https://www.youtube.com/embed/7wth_BWQHWM" },
+            { "title": "07. CSS Framework", "video": "https://www.youtube.com/embed/kwMwjH26pSk" },
+            { "title": "08. CSS Positioning", "video": "https://www.youtube.com/embed/NqeO9fiRPVE" },
+            { "title": "09. Color", "video": "https://www.youtube.com/embed/agM8Ayn8WZY" },
+            { "title": "10. Color Style", "video": "https://www.youtube.com/embed/yxGa1oHGsak" },
+            { "title": "11. Latihan CSS 2", "video": "https://www.youtube.com/embed/eTCYgOhAF28" },
+            { "title": "12. Text Formatting Style (Font, Weight, Decoration)", "video": "https://www.youtube.com/embed/-ppX6hEz0iE" },
+            { "title": "13. Text - Transform, align, Color, Shadow, Link", "video": "https://www.youtube.com/embed/CpxP8iqEadU" },
+            { "title": "14. Box, Height, Width, Overflow", "video": "https://www.youtube.com/embed/zoCI0nFzlso" },
+            { "title": "15. Pengenalan Box Model", "video": "https://www.youtube.com/embed/863FJqp4FAw" },
+            { "title": "16. Border", "video": "https://www.youtube.com/embed/vQdr67NiDBQ" },
+            { "title": "17. Padding", "video": "https://www.youtube.com/embed/h2R28wkY6sA" },
+            { "title": "18. Margin", "video": "https://www.youtube.com/embed/wr3leWJ65yM" },
+            { "title": "19. Latihan CSS 3", "video": "https://www.youtube.com/embed/muiCGzGNRRw" },
+            { "title": "20. Display element", "video": "https://www.youtube.com/embed/RMmaI5HP7ok" },
+            { "title": "21. Latihan CSS 4", "video": "https://www.youtube.com/embed/pKItGnFCUHQ" },
+            { "title": "22. Latihan CSS 5", "video": "https://www.youtube.com/embed/46NHpO8-_N4" },
+            { "title": "23. Lists Style", "video": "https://www.youtube.com/embed/aanpEgDI-6g" },
+            { "title": "24. Table Styles", "video": "https://www.youtube.com/embed/Ds4Aru39rak" },
+            { "title": "25. Forms Style", "video": "https://www.youtube.com/embed/fVQIrrSXWIU" },
+            { "title": "26. Images Style", "video": "https://www.youtube.com/embed/sO4AupmNzX0" },
+            { "title": "27. Latihan Final part 1", "video": "https://www.youtube.com/embed/A5GkmGRrcLA" },
+            { "title": "28. Latihan Final part 2", "video": "https://www.youtube.com/embed/e6NCDCXMV6U" },
+            { "title": "29. Latihan Final part 3", "video": "https://www.youtube.com/embed/-B17ATAt9vA" },
+            { "title": "30. Latihan Multi Column", "video": "https://www.youtube.com/embed/5gPi73vZfX8" },
+            { "title": "31. Positioning Layout", "video": "https://www.youtube.com/embed/GePE3PU2_vs" },
+            { "title": "32. Fluid Width Layout", "video": "https://www.youtube.com/embed/kY8pgQPzGmc" },
+            { "title": "33. Liquid Layout", "video": "https://www.youtube.com/embed/_-w7xXmuQpE" },
+            { "title": "34. Grid Layout", "video": "https://www.youtube.com/embed/Cd3zO0P5GRg" },
+            { "title": "35. Responsive Layout", "video": "https://www.youtube.com/embed/m-OHZA2ToDQ" },
+            { "title": "36. Responsive Layout – Grid View", "video": "https://www.youtube.com/embed/m0HNj0Nbmbc" },
+            { "title": "37. Media Queries", "video": "https://www.youtube.com/embed/dZUX7c7oHFg" },
+            { "title": "38. Latihan Responsive Layout", "video": "https://www.youtube.com/embed/khWMJEN34jc" },
+            { "title": "39. Bootstrap – Installasi", "video": "https://www.youtube.com/embed/FiXwaCiusNk" },
+            { "title": "40. Bootstrap – Navbar", "video": "https://www.youtube.com/embed/I0sOZGFcD4k" },
+            { "title": "41. Bootstrap – Header / Hero", "video": "https://www.youtube.com/embed/BNl5K0aPFu8" },
+            { "title": "42. Bootstrap – Grid Layout", "video": "https://www.youtube.com/embed/NPFfmHx-zuw" },
+            { "title": "43. Bootstrap – Float, Input, Link, Button", "video": "https://www.youtube.com/embed/d6vKs9ZJiZc" }
+          ]
+        },
+        "CSS Lanjutan": {
+          "title": "CSS Lanjutan",
+          "description": "Decoration for HTML",
+          "pdf": "pdfs/math_algebra.pdf",
+          "lessons": [
+            { "title": "01. Pendahuluan Position", "video": "https://www.youtube.com/embed/5gPi73vZfX8" },
+            { "title": "02. Relative Position", "video": "https://www.youtube.com/embed/GePE3PU2_vs" },
+            { "title": "03. Absolute Position", "video": "https://www.youtube.com/embed/kY8pgQPzGmc" },
+            { "title": "04. Fixed Position", "video": "https://www.youtube.com/embed/_-w7xXmuQpE" },
+            { "title": "05. Sticky Position", "video": "https://www.youtube.com/embed/Cd3zO0P5GRg" },
+            { "title": "06. Z index", "video": "https://www.youtube.com/embed/m-OHZA2ToDQ" },
+            { "title": "07. Float", "video": "https://www.youtube.com/embed/m0HNj0Nbmbc" },
+            { "title": "08. Latihan Multi Kolom", "video": "https://www.youtube.com/embed/dZUX7c7oHFg" },
+            { "title": "09. Pendahuluan Layout", "video": "https://www.youtube.com/embed/khWMJEN34jc" },
+            { "title": "10. Fixed Width Layout", "video": "https://www.youtube.com/embed/FiXwaCiusNk" },
+            { "title": "11. Liquid layout", "video": "https://www.youtube.com/embed/I0sOZGFcD4k" },
+            { "title": "12. Grid Layout", "video": "https://www.youtube.com/embed/BNl5K0aPFu8" },
+            { "title": "13. Responsive Layout, intro dan viewport", "video": "https://www.youtube.com/embed/NPFfmHx-zuw" },
+            { "title": "14. Responsive Layout, Grid and View", "video": "https://www.youtube.com/embed/d6vKs9ZJiZc" },
+            { "title": "15. Responsive Layout, Media and Queris", "video": "https://www.youtube.com/embed/buI3IC02oAA" },
+            { "title": "16. Responsive Layout Training", "video": "https://www.youtube.com/embed/UKBkgRw6Vos" },
+            { "title": "01 BootStrap Instalasi", "video": "https://www.youtube.com/embed/pJpnMyFNaz0" },
+            { "title": "02 BootStrap Navbar", "video": "https://www.youtube.com/embed/IGtuBlOAr9Q" },
+            { "title": "03 BootStrap Header Flexbox", "video": "https://www.youtube.com/embed/PVLPf920v_8" },
+            { "title": "04 Bootstrap GridCard", "video": "https://www.youtube.com/embed/Na_Ao2BbjZw" },
+            { "title": "05 Bootstrap Final - input, list, icons", "video": "https://www.youtube.com/embed/wCBnCaKj1fI" }
+          ]
+        }
+      }
+    },
+    "Figma": {
+      "name": "Figma",
+      "hero": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=1600&auto=format",
+      "topics": {
+        "Tutorial Figma Indonesia": {
+          "title": "Tutorial Figma Indonesia",
+          "description": "Tutorial figma berbahasa indonesia.",
+          "pdf": "pdfs/math_calculus.pdf",
+          "lessons": [
+            { "title": "01. Pengenalan Figma Tools Untuk UI/UX Designer", "video": "https://www.youtube.com/embed/0_-MgEl9DFM" },
+            { "title": "02. Cara Mendaftarkan Akun Figma Pertama Kali", "video": "https://www.youtube.com/embed/u8p1NQx3RpY" },
+            { "title": "03. Penjelasan Fitur Figma Terlengkap 2023", "video": "https://www.youtube.com/embed/ilSVC4Vaxks" },
+            { "title": "04. Belajar Layering, Perbedaan Group dan Frame di Figma Lengkap!", "video": "https://www.youtube.com/embed/gq615c5_o9Q" },
+            { "title": "05. Penjelasan Detail Semua Fitur Teks Editor di Figma", "video": "https://www.youtube.com/embed/pbd7ZP7ZlgM" },
+            { "title": "06. Detail Perbedaan Margin, Padding dan Border", "video": "https://www.youtube.com/embed/-YuK8_7Y2eA" },
+            { "title": "07. Pewarnaan, Gambar dan Video di Figma", "video": "https://www.youtube.com/embed/P1-0gjLCBEA" },
+            { "title": "08. Penjelasan Detail Plugin dan Widget yang Berguna di Figma", "video": "https://www.youtube.com/embed/-g-MCoy1RXc" },
+            { "title": "09. Belajar Design Figma Pertama Kali", "video": "https://www.youtube.com/embed/4g250UhtFnY" },
+            { "title": "10. Penugasan Membuat Design dengan Figma Tools", "video": "https://www.youtube.com/embed/JdkblpT5r8Q" }
+          ]
+        },
+        "English Figma Tutorial": {
+          "title": "English Figma Tutorial",
+          "description": "Equations, functions, polynomials.",
+          "pdf": "pdfs/math_algebra.pdf",
+          "lessons": [
+            { "title": "01. Course overview: Figma Design for beginners [1 of 13]", "video": "https://www.youtube.com/embed/zzhSFobLkYw" },
+{ "title": "02. Set up your Figma account: Figma Design for beginners [2 of 13]", "video": "https://www.youtube.com/embed/O3gwSmExW1Q" },
+{ "title": "03. Figma Design for beginners: Advocate sidebar — Kaitie and Lauren talk portfolios", "video": "https://www.youtube.com/embed/Slm6gr2ZV7k" },
+{ "title": "04. Navigate Figma Design files: Figma Design for beginners [3 of 13]", "video": "https://www.youtube.com/embed/zt-Zr57Vfzs" },
+{ "title": "05. Create the landing page hero: Figma Design for beginners [4 of 13]", "video": "https://www.youtube.com/embed/q3RM7W2PjUs" },
+{ "title": "06. Figma Design for beginners: Advocate sidebar — Portfolio personalization", "video": "https://www.youtube.com/embed/sGXHtQfgChg" },
+{ "title": "07. Create the case study page: Figma Design for beginners [5 of 13]", "video": "https://www.youtube.com/embed/G9ojik2MEeQ" },
+{ "title": "08. Figma Design for beginners: Advocate Sidebar — Sections, groups, and frames", "video": "https://www.youtube.com/embed/v1ETJHt6hf4" },
+{ "title": "09. Create the button: Figma Design for beginners [6 of 13]", "video": "https://www.youtube.com/embed/PZaBmmI0s4M" },
+{ "title": "10. Components fundamentals: Figma Design for beginners [7 of 13]", "video": "https://www.youtube.com/embed/7dJBDU8HBeQ" },
+{ "title": "11. Create the card and container system: Figma Design for beginners [8 of 13]", "video": "https://www.youtube.com/embed/9La952nT1_8" },
+{ "title": "12. Figma Design for beginners: Advocate sidebar — Auto layout", "video": "https://www.youtube.com/embed/aaZsP7AYi2w" },
+{ "title": "13. Create the navigation bar and footer: Figma design for beginners [9 of 13]", "video": "https://www.youtube.com/embed/zo7FVhjOq68" },
+{ "title": "14. Create the skills list: Figma Design for beginners [10 of 13]", "video": "https://www.youtube.com/embed/9g04XTM_clE" },
+{ "title": "15. Assemble the portfolio pages: Figma Design for beginners [11 of 13]", "video": "https://www.youtube.com/embed/Dv8tr65KIWA" },
+{ "title": "16. Add prototype connections: Figma Design for beginners [12 of 13]", "video": "https://www.youtube.com/embed/ScsAc99PT_w" },
+{ "title": "17. Course wrap up: Figma Design for beginners [13 of 13]", "video": "https://www.youtube.com/embed/p37EopqBmIo" },
+{ "title": "18. Figma Design for beginners: Advocate sidebars — What's next?", "video": "https://www.youtube.com/embed/9SFjiUmlFtg" }
+          ]
+        }
+      }
+    }
+  }
+}

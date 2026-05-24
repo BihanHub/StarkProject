@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Learning Space – Constellation Skill Tree</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: #e0e0e0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        :root {
+            --crimson: #a51c30;
+            --stark-gold: #d4af37;
+            --stark-cyan: #00e5ff;
+            --dark-card: rgba(20, 20, 20, 0.9);
+        }
+
+        /* ========= HERO ========= */
+        .hero {
+            position: relative;
+            height: 45vh;
+            min-height: 400px;
+            background-size: cover;
+            background-position: center 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #1c0a0a;
+            flex-shrink: 0;
+            border-bottom: 2px solid rgba(165, 28, 48, 0.4);
+            overflow: hidden;
+            transition: background-image 0.4s ease;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 2, 2, 0.9) 0%, rgba(30, 5, 10, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(45deg, rgba(0,229,255,0.03) 0px, rgba(0,229,255,0.03) 2px, transparent 2px, transparent 8px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1100px;
+            padding: 1rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 2px 15px rgba(165, 28, 48, 0.5);
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: #d1d5db;
+        }
+
+        .accent-line {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #a51c30, #00e5ff);
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(165,28,48,0.4);
+        }
+
+        .subject-tree-container {
+            width: 100%;
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .constellation-svg {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            overflow: visible;
+        }
+
+        /* ========= CAROUSEL ========= */
+        .carousel-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1.2rem 2rem 1rem;
+            background: linear-gradient(180deg, #1a1010 0%, #0a0a0a 100%);
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .carousel-track-container {
+            overflow-x: hidden;
+            width: 100%;
+            padding: 0.8rem 0;
+            background: rgba(18,18,18,0.6);
+            border-radius: 18px;
+            border: 1px solid rgba(165,28,48,0.25);
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+            cursor: grab;
+        }
+        
+        .carousel-track-container:active {
+            cursor: grabbing;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 1.3rem;
+            transition: transform 0.4s ease;
+            will-change: transform;
+            padding: 25px;
+        }
+
+        .subject-card {
+            flex: 0 0 calc(25% - 1.3rem);
+            min-width: 220px;
+            background: var(--dark-card);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid rgba(255,255,255,0.08);
+            cursor: pointer;
+        }
+
+        .subject-card.card-hovered {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
+            border-color: #00e5ff;
+            background: rgba(0, 20, 30, 0.9);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .card-content {
+            padding: 1rem 1rem 1.3rem;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .card-desc {
+            font-size: 0.8rem;
+            color: #b0b0b0;
+        }
+
+        .card-maroon {
+            display: inline-block;
+            margin-top: 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: white;
+            background: #a51c30;
+            border-radius: 20px;
+            padding: 4px 16px;
+            border: 1px solid rgba(212,175,55,0.3);
+        }
+
+        .nav-btn {
+            background: #1e1e1e;
+            border: 1px solid #a51c30;
+            color: white;
+            font-size: 2rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+            flex-shrink: 0;
+        }
+
+        .nav-btn:hover {
+            background: #a51c30;
+            border-color: #d4af37;
+            box-shadow: 0 0 15px rgba(165,28,48,0.7);
+        }
+
+        .nav-btn.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .library-foot {
+            text-align: center;
+            margin-top: 1.2rem;
+        }
+
+        .library-foot a {
+            border: 1.5px solid #a51c30;
+            color: white;
+            padding: 0.6rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.2s;
+        }
+
+        .library-foot a:hover {
+            background: #a51c30;
+            border-color: #d4af37;
+            box-shadow: 0 0 18px rgba(165,28,48,0.5);
+        }
+
+        .jarvis-note {
+            text-align: center;
+            font-size: 0.65rem;
+            color: #555;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 1000px) {
+            .subject-card { flex: 0 0 calc(33.333% - 1rem); }
+        }
+
+        @media (max-width: 700px) {
+            .subject-card { flex: 0 0 calc(50% - 0.6rem); }
+            .hero { min-height: 380px; }
+        }
+
+        @media (max-width: 500px) {
+            .subject-card { flex: 0 0 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero" id="dynamicHero">
+    <div class="hero-content">
+        <h1>Kuli Spreadsheet learning hub.</h1>
+        <p id="heroSubtitle">linknya di keep di kita aja yaa gausah dishare dulu</p>
+        <div class="accent-line"></div>
+        <div class="subject-tree-container" id="subjectTreeContainer"></div>
+    </div>
+</div>
+
+<div class="carousel-container">
+    <div class="carousel-wrapper">
+        <button class="nav-btn" id="prevBtn" aria-label="Previous">‹</button>
+        <div class="carousel-track-container" id="carouselTrackContainer">
+            <div class="carousel-track" id="carouselTrack"></div>
+        </div>
+        <button class="nav-btn" id="nextBtn" aria-label="Next">›</button>
+    </div>
+    <div class="library-foot">
+        <a href="library.html">📚 Go to Lif hbrary (books & PDFs)</a>
+    </div>
+    <div class="jarvis-note">
+        JARVIS is offline. You’re the engineer today.
+    </div>
+</div>
+
+<script>
+    const learningData = {
+        "subjects": {
+            "Web Development": {
+                "name": "Web Development",
+                "hero": "https://yukcoding.id/wp-content/uploads/2022/03/web-development.jpeg",
+                "topics": {
+                    "HTML": { "title": "HTML", "lessons": [ {"title":"Limits"}, {"title":"Derivatives"}, {"title":"Integrals"}, {"title":"Series"} ] },
+                    "CSS Dasar": { "title": "CSS Dasar", "lessons": [ {"title":"Linear Equations"}, {"title":"Quadratic Equations"} ] },
+                     " CSS Lanjutan": { "title": " CSS Lanjutan", "lessons": [ {"title":"Linear Equations"}, {"title":"Quadratic Equations"} ] }
+                   
+                }
+            },
+            "Figma": {
+                "name": "Figma",
+                "hero": "https://statik.unesa.ac.id/terapan-ti/thumbnail/faac7b6a-44b0-4ccb-9737-b2e2cf137bf7.png",
+                "topics": {
+                    "Tutorial Figma Indonesia": { "title": "Tutorial Figma Indonesia", "lessons": [ {"title":"Sorting"}, {"title":"Searching"} ] },
+                    "English Figma Tutorial": { "title": "English Figma Tutorial", "lessons": [ {"title":"HTML/CSS"}, {"title":"JavaScript"} ] }
+                }
+            }
+        }
+    };
+
+    const subjectKeys = Object.keys(learningData.subjects);
+</script>
+
+<script>
+    (function() {
+        const heroEl = document.getElementById('dynamicHero');
+        const treeContainer = document.getElementById('subjectTreeContainer');
+        const heroSubtitle = document.getElementById('heroSubtitle');
+        const track = document.getElementById('carouselTrack');
+        const trackContainer = document.getElementById('carouselTrackContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function getSubjectEmoji(key) {
+            const map = { physics:'⚛️', chemistry:'🧪', mathematics:'📐',
+                coding:'💻', english:'📖', law:'⚖️', economy:'📊', accounting:'📑' };
+            return map[key] || '📘';
+        }
+
+        function getSubjectDesc(key) {
+            const descMap = {
+                physics: 'From Newton to quantum fields.',
+                chemistry: 'Molecules, reactions, periodic table.',
+                mathematics: 'Pure logic, calculus, proofs.',
+                coding: 'Algorithms, systems, building.',
+                english: 'Literature, writing, expression.',
+                law: 'Rights, contracts, legal reasoning.',
+                economy: 'Markets, trade, scarcity.',
+                accounting: 'Balance sheets, ledgers, clarity.'
+            };
+            return descMap[key] || 'Explore this subject.';
+        }
+
+        function generateCards() {
+            track.innerHTML = '';
+            subjectKeys.forEach(key => {
+                const sub = learningData.subjects[key];
+                const emoji = getSubjectEmoji(key);
+                const card = document.createElement('a');
+                card.className = 'subject-card';
+                card.href = `subject.html?subject=${key}`;
+                card.setAttribute('data-subject', key);
+                card.innerHTML = `
+                    <img class="card-image" src="${sub.hero.replace('1600','600')}" alt="${sub.name}">
+                    <div class="card-content">
+                        <div class="card-title">${emoji} ${sub.name}</div>
+                        <div class="card-desc">${getSubjectDesc(key)}</div>
+                        <span class="card-maroon">enter lab</span>
+                    </div>
+                `;
+                track.appendChild(card);
+
+                card.addEventListener('mouseenter', () => {
+                    card.classList.add('card-hovered');
+                    updateHeroForSubject(key);
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.classList.remove('card-hovered');
+                    resetHeroToDefault();
+                });
+            });
+        }
+
+        // ========= CONSTELLATION TREE – NO LABELS =========
+        function buildConstellationSVG(subjectKey) {
+            const sub = learningData.subjects[subjectKey];
+            if (!sub) return `<svg class="constellation-svg" viewBox="0 0 500 200"></svg>`;
+
+            const topicArray = Object.entries(sub.topics);
+            const maxVisible = 4;
+            const starR = 6;
+            const glowR = 12;
+            const rootX = 40, rootY = 100;
+            const firstStarX = 180, starSpacingX = 60, starSpacingY = 22;
+
+            let lines = '';
+            let stars = '';
+
+            topicArray.forEach(([topicKey, topic], tIndex) => {
+                const lessons = topic.lessons;
+                const visibleCount = Math.min(lessons.length, maxVisible);
+                const extra = lessons.length > maxVisible ? 1 : 0;
+                const totalStars = visibleCount + extra;
+                const topicY = rootY + (tIndex - (topicArray.length-1)/2) * (totalStars * starSpacingY + 12);
+
+                if (visibleCount > 0 || extra) {
+                    const firstStarY = topicY - ((totalStars-1) * starSpacingY)/2;
+                    lines += `<line x1="${rootX + starR}" y1="${rootY}" x2="${firstStarX}" y2="${firstStarY}" stroke="rgba(0,229,255,0.25)" stroke-width="1.5" />`;
+                }
+
+                for (let i = 0; i < visibleCount; i++) {
+                    const starY = topicY - ((totalStars-1) * starSpacingY)/2 + i * starSpacingY;
+                    stars += `
+                        <circle cx="${firstStarX + i * starSpacingX}" cy="${starY}" r="${glowR}" fill="rgba(0,229,255,0.12)" />
+                        <circle cx="${firstStarX + i * starSpacingX}" cy="${starY}" r="${starR}" fill="#1e1e1e" stroke="#00e5ff" stroke-width="1.5" />
+                    `;
+                }
+
+                if (extra) {
+                    const starY = topicY - ((totalStars-1) * starSpacingY)/2 + visibleCount * starSpacingY;
+                    stars += `
+                        <circle cx="${firstStarX + visibleCount * starSpacingX}" cy="${starY}" r="${glowR}" fill="rgba(0,229,255,0.08)" />
+                        <circle cx="${firstStarX + visibleCount * starSpacingX}" cy="${starY}" r="${starR}" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="2 2" />
+                    `;
+                }
+            });
+
+            // Root star – no text
+            const rootStar = `
+                <circle cx="${rootX}" cy="${rootY}" r="${glowR + 2}" fill="rgba(165,28,48,0.25)" />
+                <circle cx="${rootX}" cy="${rootY}" r="${starR + 2}" fill="#a51c30" stroke="#d4af37" stroke-width="2" />
+            `;
+
+            const svgHeight = Math.max(180, topicArray.length * 80);
+            return `
+                <svg class="constellation-svg" viewBox="0 0 500 ${svgHeight}" preserveAspectRatio="xMidYMid meet">
+                    <rect width="100%" height="100%" fill="transparent" />
+                    ${lines}
+                    ${stars}
+                    ${rootStar}
+                </svg>
+            `;
+        }
+
+        function updateHeroForSubject(subjectKey) {
+            const sub = learningData.subjects[subjectKey];
+            heroEl.style.backgroundImage = `url(${sub.hero})`;
+            heroSubtitle.textContent = `${sub.name} constellation`;
+            treeContainer.innerHTML = buildConstellationSVG(subjectKey);
+        }
+
+        function resetHeroToDefault() {
+            heroEl.style.backgroundImage = `url(https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1600&auto=format)`;
+            heroSubtitle.textContent = 'Hover a subject to see its constellation.';
+            treeContainer.innerHTML = `<svg class="constellation-svg" viewBox="0 0 500 160"><text x="250" y="80" text-anchor="middle" fill="#888" font-size="0.9rem">Explore subjects to reveal their stars</text></svg>`;
+        }
+
+        // Carousel logic
+        let currentIndex = 0;
+        let cardsPerView = 4;
+        let totalCards = 0;
+
+        function updateCardsPerView() {
+            const width = window.innerWidth;
+            if (width <= 500) cardsPerView = 1;
+            else if (width <= 700) cardsPerView = 2;
+            else if (width <= 1000) cardsPerView = 3;
+            else cardsPerView = 4;
+
+            totalCards = document.querySelectorAll('.subject-card').length;
+            if (currentIndex > totalCards - cardsPerView) {
+                currentIndex = Math.max(0, totalCards - cardsPerView);
+            }
+            updateCarousel();
+            updateButtons();
+        }
+
+        function updateCarousel() {
+            const card = track.children[0];
+            if (!card || totalCards === 0) return;
+            const cardWidth = card.offsetWidth;
+            const gap = parseFloat(getComputedStyle(track).gap) || 21;
+            track.style.transform = `translateX(-${currentIndex * (cardWidth + gap)}px)`;
+        }
+
+        function updateButtons() {
+            totalCards = document.querySelectorAll('.subject-card').length;
+            prevBtn.classList.toggle('disabled', currentIndex === 0);
+            nextBtn.classList.toggle('disabled', currentIndex >= totalCards - cardsPerView);
+        }
+
+        function goPrev() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+                updateButtons();
+            }
+        }
+
+        function goNext() {
+            totalCards = document.querySelectorAll('.subject-card').length;
+            if (currentIndex < totalCards - cardsPerView) {
+                currentIndex++;
+                updateCarousel();
+                updateButtons();
+            }
+        }
+
+        nextBtn.addEventListener('click', goNext);
+        prevBtn.addEventListener('click', goPrev);
+
+        // ========= MOUSE / TOUCHPAD WHEEL SCROLLING =========
+        function enableCarouselWheelScroll(scrollContainer, { onPrev, onNext }) {
+            let isThrottled = false;
+            let accumulatedDelta = 0;
+            const SCROLL_THRESHOLD = 35; // pixels of wheel delta to trigger one item move
+            let scrollTimeout = null;
+
+            const handleWheel = (e) => {
+                // Get delta (horizontal preferred, fallback to vertical)
+                let delta = e.deltaX !== 0 ? e.deltaX : e.deltaY;
+                
+                // Ignore very small movements to avoid jitter
+                if (Math.abs(delta) < 8) return;
+                
+                e.preventDefault(); // Prevent page scroll while scrolling carousel
+                
+                // Accumulate delta for smoother experience
+                accumulatedDelta += delta;
+                
+                if (isThrottled) return;
+                
+                // Determine direction based on accumulated delta
+                let direction = null;
+                if (Math.abs(accumulatedDelta) >= SCROLL_THRESHOLD) {
+                    direction = accumulatedDelta > 0 ? 'next' : 'prev';
+                    accumulatedDelta = 0;
+                } else {
+                    // Wait for more accumulation or timeout reset
+                    if (scrollTimeout) clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        accumulatedDelta = 0;
+                        scrollTimeout = null;
+                    }, 150);
+                    return;
+                }
+                
+                isThrottled = true;
+                
+                if (direction === 'prev') {
+                    onPrev();
+                } else if (direction === 'next') {
+                    onNext();
+                }
+                
+                // Throttle to prevent rapid firing during intense scrolling
+                setTimeout(() => {
+                    isThrottled = false;
+                }, 200);
+            };
+            
+            scrollContainer.addEventListener('wheel', handleWheel, { passive: false });
+            
+            // Return cleanup function
+            return () => {
+                scrollContainer.removeEventListener('wheel', handleWheel);
+            };
+        }
+
+        // Initialize everything after cards are generated
+        generateCards();
+        updateCardsPerView();
+        
+        // Enable wheel scroll on the track container
+        const cleanupWheel = enableCarouselWheelScroll(trackContainer, {
+            onPrev: goPrev,
+            onNext: goNext
+        });
+        
+        // Handle resize events
+        window.addEventListener('resize', () => {
+            updateCardsPerView();
+            updateCarousel();
+        });
+        
+        // Also observe track changes (like card loading) to reposition correctly
+        const resizeObserver = new ResizeObserver(() => {
+            updateCarousel();
+        });
+        resizeObserver.observe(track);
+        
+        // Load event guarantee
+        window.addEventListener('load', () => {
+            updateCardsPerView();
+            updateCarousel();
+        });
+        
+        // Optional: store cleanup if needed (though page unload handles it)
+        // cleanupWheel can be called on page unload if required, but not necessary.
+        
+        // Add initial default hero background
+        resetHeroToDefault();
+    })();
+</script>
+</body>
+</html>

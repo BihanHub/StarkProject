@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library · Books & PDFs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #fefcf5;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+        .back-link {
+            margin-bottom: 2rem;
+            display: inline-block;
+            color: #666;
+            text-decoration: none;
+        }
+        .search-box {
+            margin: 1.5rem 0;
+        }
+        input {
+            width: 100%;
+            padding: 0.7rem;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            background: white;
+        }
+        .category {
+            margin-top: 2rem;
+        }
+        .category h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            border-bottom: 1px solid #e0dcd0;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
+        }
+        .book-list {
+            list-style: none;
+        }
+        .book-list li {
+            margin: 0.8rem 0;
+            padding: 0.4rem 0;
+            border-bottom: 1px dotted #ece8df;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .book-title {
+            font-weight: 500;
+        }
+        .book-link {
+            color: #0066cc;
+            text-decoration: none;
+            background: #f1f1ef;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .note {
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ece8df;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← back to home</a>
+    <h1>📚 Library</h1>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Filter books / PDFs...">
+    </div>
+
+    <div id="libraryContainer">
+        <div class="category" data-category="physics">
+            <h2>⚛️ Physics</h2>
+            <ul class="book-list">
+                <li><span class="book-title">The Feynman Lectures on Physics (Vol.1)</span> <a href="#" class="book-link" data-pdf="feynman_vol1.pdf">open PDF</a></li>
+                <li><span class="book-title">Introduction to Electrodynamics - Griffiths</span> <a href="#" class="book-link" data-pdf="griffiths.pdf">open PDF</a></li>
+            </ul>
+        </div>
+        <div class="category" data-category="electronics">
+            <h2>🔌 Electronics</h2>
+            <ul class="book-list">
+                <li><span class="book-title">The Art of Electronics</span> <a href="#" class="book-link" data-pdf="art_of_electronics.pdf">open PDF</a></li>
+                <li><span class="book-title">Practical Electronics for Inventors</span> <a href="#" class="book-link" data-pdf="practical_electronics.pdf">open PDF</a></li>
+            </ul>
+        </div>
+        <div class="category" data-category="math">
+            <h2>📐 Mathematics</h2>
+            <ul class="book-list">
+                <li><span class="book-title">Calculus: Early Transcendentals</span> <a href="#" class="book-link" data-pdf="stewart_calculus.pdf">open PDF</a></li>
+                <li><span class="book-title">Linear Algebra Done Right</span> <a href="#" class="book-link" data-pdf="axler_linear.pdf">open PDF</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="note">
+        💡 To add your own PDFs: place them in the same folder, then edit the <code>data-pdf="filename.pdf"</code> links above.
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const categories = document.querySelectorAll('.category');
+
+        searchInput.addEventListener('keyup', function() {
+            const term = this.value.toLowerCase();
+            categories.forEach(cat => {
+                const books = cat.querySelectorAll('.book-list li');
+                let anyVisible = false;
+                books.forEach(book => {
+                    const title = book.querySelector('.book-title')?.innerText.toLowerCase() || '';
+                    const matches = title.includes(term);
+                    book.style.display = matches ? 'flex' : 'none';
+                    if (matches) anyVisible = true;
+                });
+                cat.style.display = anyVisible ? 'block' : 'none';
+            });
+        });
+
+        document.querySelectorAll('.book-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pdfFile = link.getAttribute('data-pdf');
+                if (pdfFile) window.open(pdfFile, '_blank');
+                else alert('Add a valid PDF filename');
+            });
+        });
+    </script>
+</body>
+</html>
